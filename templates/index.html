@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block body %}
 
@@ -15,6 +15,7 @@
      flavours,using loacl,seasonal produce and traditional indian techniques.</p>
      <p>The word "thali" refers to the way meals are eaten in India-where a selection of healthy ,
       delicious and nutritiousdishes are served together on one plate</p>
+      <p>Thali showcases the hero dishes of the subcontinent from the back streets of Bombay to the beach shacks of Goa.</p>
 
 </div>
 <hr>
@@ -34,11 +35,11 @@
   <p>Sundays and Mondays</p>
   <p>For both lunch and dinner,we take bookings for parties of 1 to 6.</p>
   <p>Private dining room parties of 6 to 10.</p>
-  <button class="btn btn-success" type="button">Book a Table</button>
+  <a href="{% url 'booking' %}" class="btn btn-success" role ="button">Book a Table</a>
   </div>
 </div>
 <hr>
-<div class="container-sm">
+<div class="container-sm contact">
   <h3>CONTACT</h3>
   <p>Have an enquiry about bookings,private dining or our menu?</p>
   <p>Please contact us at <strong>info@thalirestaurant.com.</strong></p>
