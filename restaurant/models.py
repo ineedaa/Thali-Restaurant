@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 from phonenumber_field.modelfields import PhoneNumberField
 from django import forms
 from django.forms.widgets import DateInput
+from datetime import datetime
 
 
 
@@ -29,7 +30,7 @@ class BookingForm(forms.ModelForm):
         model=Booking
         fields=['phone','number_of_guests','date','time','special_request',]
         widgets = {
-            'date': DateInput(attrs={'type': 'date'})
+            'date': DateInput(attrs={'type': 'date','min': datetime.today().strftime('%Y-%m-%d')})
         }
 
 
