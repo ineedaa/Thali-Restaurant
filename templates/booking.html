@@ -16,6 +16,11 @@
                 {% endfor %}
         </ul>
         {% endif %}
+        <div class="messages container-sm">
+        {% if message %}
+           <strong>{{ message }}</strong> 
+        </div>
+        {% endif %}
     </div>
     <br>
     <!-- booking model form -->

@@ -11,7 +11,7 @@
         <ul class="messages">
             {% for message in messages %}
             <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-            {% endfor %}
+                {% endfor %}
         </ul>
         {% endif %}
     </div>
@@ -24,10 +24,16 @@
         <p><strong>Number of guests:</strong> {{ booking.number_of_guests }}</p>
         <p><strong>Special request:</strong> {{ booking.special_request }}</p>
         <button class="btn btn-warning"><a href="{% url 'edit_booking' booking.id %}">Edit</a></button>
+        <form method="post" action="{% url 'delete_booking' booking.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Delete Booking</button>
+        </form>
     </div>
     {% endfor %}
     {% else %}
-    <p>No booking details found.</p>
+    <div class="container-sm">
+        <p>No booking details found.</p>
+    </div>
     {% endif %}
 </div>
 {% endblock %}

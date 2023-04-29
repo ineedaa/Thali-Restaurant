@@ -3,9 +3,8 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from phonenumber_field.modelfields import PhoneNumberField
 from django import forms
-from django.forms.widgets import DateInput
-from datetime import datetime
-
+from django.forms.widgets import DateInput,TimeInput
+from datetime import datetime,time
 
 
 # Create your models here.
@@ -15,7 +14,7 @@ class Booking(models.Model):
     phone = PhoneNumberField(null=False,blank=False)
     number_of_guests= models.IntegerField()
     date =models.DateField()
-    time= models.CharField(max_length=10)
+    time= models.TimeField()
     special_request= models.TextField(max_length=200)
 
 
@@ -30,10 +29,12 @@ class BookingForm(forms.ModelForm):
         model=Booking
         fields=['phone','number_of_guests','date','time','special_request',]
         widgets = {
-            'date': DateInput(attrs={'type': 'date','min': datetime.today().strftime('%Y-%m-%d')})
+            'date': DateInput(attrs={'type': 'date','min': datetime.today().strftime('%Y-%m-%d')}),
+            'time': TimeInput(attrs={'type': 'time'})
         }
-
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['time'].widget.attrs.update({'min': time(18, 0).strftime('%H:%M'), 'max': time(22, 0).strftime('%H:%M')})
 
 
 

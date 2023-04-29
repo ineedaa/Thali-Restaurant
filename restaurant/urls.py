@@ -11,4 +11,5 @@ urlpatterns = [
     path("register/", register, name="register"),
     path("menu/",menu,name="menu"),
     path('edit_booking/<int:booking_id>/',edit_booking,name="edit_booking"),
+    path('myaccount/<int:booking_id>/delete/',delete_booking,name="delete_booking"),
 ]
