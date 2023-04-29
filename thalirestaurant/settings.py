@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['thali-restaurant.herokuapp.com', 'localhost']
 
-
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    "phonenumber_field",
     'cloudinary',
     'django_summernote',
     'restaurant',

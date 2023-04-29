@@ -1,6 +1,57 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-<h1>RESERVE A TABLE</h1>
+<div>
+<div class="container-sm">
+<h1 id="reserve">RESERVE A TABLE</h1>
+<p>Please enter your booking details here.</p>
+</div>
+<div class="container-sm">
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><strong>{{ message }}</strong></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</div>
+<br>
+<form method="POST" enctype="multipart/form-data" onsubmit="return validation()" action="{% url 'booking' %}">
+    {% csrf_token %}
+    {{ form.errors }}
+    <div class="container-sm">
+        <div class="sub-content">
+            
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Mobile Number:</span>
+                    {{ form.phone }}
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">No of Guests:</span>
+                    {{ form.number_of_guests }}
+                    
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Date of Event:</span>
+                    {{ form.date }}
+                
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Time of Event:</span>
+                    {{ form.time }}
+                    
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Special Requests:</span>
+                    {{ form.special_request }}
+                
+                </div>
 
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button  class="btn btn-success" type="submit" name="submit" value="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

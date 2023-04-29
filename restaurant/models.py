@@ -1,16 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from phonenumber_field.modelfields import PhoneNumberField
+from django import forms
+from django.forms.widgets import DateInput
+
 
 
 # Create your models here.
 class Booking(models.Model):
     name = models.ForeignKey(User,on_delete=models.CASCADE,related_name="customer",null=False)
     email= models.EmailField(null= False,blank=False)
-    phone = models.IntegerField()
+    phone = PhoneNumberField(null=False,blank=False)
     number_of_guests= models.IntegerField()
     date =models.DateField()
-    time= models.TimeField()
+    time= models.CharField(max_length=10)
     special_request= models.TextField(max_length=200)
     updated_on=models.DateTimeField(auto_now=True)
 
@@ -19,18 +23,18 @@ class Booking(models.Model):
         ordering = ['-date']
 
     def __str__(self):
-        return self.name
+        return f"{self.name.username}"
 
-class Comment(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE,related_name="client")
-    email=models.ForeignKey(User,on_delete=models.CASCADE,related_name="user_email")
-    post= models.TextField(max_length=200)
-    created_on=models.DateTimeField(auto_now_add=True)
-    approved= models.BooleanField(default=False)
-
+class BookingForm(forms.ModelForm):
     class Meta:
-        ordering = ['created_on']
+        model=Booking
+        fields=['phone','number_of_guests','date','time','special_request',]
+        widgets = {
+            'date': DateInput(attrs={'type': 'date'})
+        }
 
-    def __str__(self):
-        return f"Comment {self.post} by {self.name}"
+
+
+
+
 
