@@ -12,11 +12,18 @@
         {% endfor %}
     </ul>
 {% endif %}
-
     <form method="post">
-        {% csrf_token %}
+     {% csrf_token %}
+     <div class="container-sm">
+        <div class="sub-content">
+            
+                
         {{ form.as_p }}
+        
         <input type="submit" class="btn btn-warning" value="Save Changes">
+    </div>
+   </div>
     </form>
+    
 </div>
 {% endblock %}
