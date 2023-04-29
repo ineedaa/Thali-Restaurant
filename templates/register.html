@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-
 {% block body %}
 <div class="topper container-sm">
     <h2>Register</h2>
-<p>Welcome to Thali Restaurant!!.Inorder to book a table,please register here.</p>
+    <p>Welcome to Thali Restaurant!!.Inorder to book a table,please register here.</p>
+    <!-- error message -->
     {% if message %}
-        <div>{{ message }}</div>
+    <div>{{ message }}</div>
     {% endif %}
 </div>
+<!-- register form -->
 <div class="container-sm">
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
@@ -25,7 +26,6 @@
         </div>
         <input class="btn btn-primary" type="submit" value="Register">
     </form>
-
     Already have an account? <a href="{% url 'login' %}"><strong>Log In here.</strong></a>
 </div>
 {% endblock %}

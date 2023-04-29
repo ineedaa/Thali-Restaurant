@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-
 {% block body %}
 <div class="topper container-sm">
     <h2>Login</h2>
-
+    <!-- error message -->
     {% if message %}
-        <div>{{ message }}</div>
+    <div>{{ message }}</div>
     {% endif %}
 </div>
+<!-- login form -->
 <div class="container-sm">
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
@@ -19,7 +19,6 @@
         </div>
         <input class="btn btn-primary" type="submit" value="Login">
     </form>
-
     Don't have an account? <a href="{% url 'register' %}"><strong>Register here.</strong></a>
 </div>
 {% endblock %}

@@ -16,7 +16,6 @@ class Booking(models.Model):
     date =models.DateField()
     time= models.CharField(max_length=10)
     special_request= models.TextField(max_length=200)
-    updated_on=models.DateTimeField(auto_now=True)
 
 
     class Meta:

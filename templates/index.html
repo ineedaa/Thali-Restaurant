@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-
+<!-- main section -->
 <div class="container-fluid callout-container">
   <section class="transbox">
     <h1>THALI RESTAURANT</h1>
@@ -12,33 +12,34 @@
 <div class="container-md">
   <h3 class="heading">Our Story</h3>
   <p>Thali is an award winning restaurant in Dublin,Ireland ,renowned for producing simple food full of exotic
-     flavours,using loacl,seasonal produce and traditional indian techniques.</p>
-     <p>The word "thali" refers to the way meals are eaten in India-where a selection of healthy ,
-      delicious and nutritiousdishes are served together on one plate</p>
-      <p>Thali showcases the hero dishes of the subcontinent from the back streets of Bombay to the beach shacks of Goa.</p>
-
+    flavours,using loacl,seasonal produce and traditional indian techniques.</p>
+  <p>The word "thali" refers to the way meals are eaten in India-where a selection of healthy ,
+    delicious and nutritiousdishes are served together on one plate</p>
+  <p>Thali showcases the hero dishes of the subcontinent from the back streets of Bombay to the beach shacks of Goa.</p>
 </div>
 <hr>
 <div class="container">
   <div class="tableimg">
     <img class="img1" src="static/img/dinner.jpg" alt="A cartoon of ordering online">
   </div>
+  <!-- info div -->
   <div class="info">
-  <h3>LUNCH</h3>
-  <p>12.00pm to 2.00 pm Thursday to Saturday.</p>
-  <p>Last orders for tasting menu at 1.30</p>
-  <br>
-  <h3>DINNER</h3>
-  <p>6.30 pm to 9.30pm Tuesday to Saturday.</p> 
-<br> 
-  <h3>CLOSED</h3>
-  <p>Sundays and Mondays</p>
-  <p>For both lunch and dinner,we take bookings for parties of 1 to 6.</p>
-  <p>Private dining room parties of 6 to 10.</p>
-  <a href="{% url 'booking' %}" class="btn btn-success" role ="button">Book a Table</a>
+    <h3>LUNCH</h3>
+    <p>12.00pm to 2.00 pm Thursday to Saturday.</p>
+    <p>Last orders for tasting menu at 1.30</p>
+    <br>
+    <h3>DINNER</h3>
+    <p>6.30 pm to 9.30pm Tuesday to Saturday.</p>
+    <br>
+    <h3>CLOSED</h3>
+    <p>Sundays and Mondays</p>
+    <p>For both lunch and dinner,we take bookings for parties of 1 to 6.</p>
+    <p>Private dining room parties of 6 to 10.</p>
+    <a href="{% url 'booking' %}" class="btn btn-success" role="button">Book a Table</a>
   </div>
 </div>
 <hr>
+<!-- contact div -->
 <div class="container-sm contact">
   <h3>CONTACT</h3>
   <p>Have an enquiry about bookings,private dining or our menu?</p>
@@ -47,5 +48,5 @@
   <p> Located at <strong>18 Parsell street,Dublin,Ireland.</strong></p>
   <h4>Media Contact</h4>
   <p>All media requests are handled by Glensonmedia & Co. </p>
-</div>  
+</div>
 {% endblock %}

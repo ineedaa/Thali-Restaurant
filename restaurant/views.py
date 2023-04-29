@@ -77,6 +77,7 @@ def booking(request):
             if existing_bookings.exists():
                 messages.error(request, 'The selected date and time is already booked. Please select a different date and time.')
             else:
+            # Save the booking if there are no overlaps
                 booking.save()
                 messages.success(request, 'Booking created successfully.')
                 return redirect('myaccount')

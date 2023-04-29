@@ -1,29 +1,25 @@
 {% extends 'base.html' %}
-
 {% block body %}
 <div class="topper container-sm">
     <h1>Edit Booking</h1>
-
     <br>
+    <!-- error messages -->
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
     </ul>
-{% endif %}
+    {% endif %}
+    <!-- pre-filled edit booking form -->
     <form method="post">
-     {% csrf_token %}
-     <div class="container-sm">
-        <div class="sub-content">
-            
-                
-        {{ form.as_p }}
-        
-        <input type="submit" class="btn btn-warning" value="Save Changes">
-    </div>
-   </div>
+        {% csrf_token %}
+        <div class="container-sm">
+            <div class="sub-content">
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-warning" value="Save Changes">
+            </div>
+        </div>
     </form>
-    
 </div>
 {% endblock %}
