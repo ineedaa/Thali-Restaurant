@@ -11,7 +11,7 @@ def index(request):
     return render(request,'index.html')
 
 def menu(request):
-    return render(request,'menu.html') 
+    return render(request,'menu.html')
 
 def login_view(request):
     if request.method == "POST":
@@ -73,7 +73,8 @@ def booking(request):
             booking=form.save(commit=False)
             booking.name= request.user
            # Check for overlapping bookings
-            existing_bookings = Booking.objects.filter(date=booking.date, time=booking.time)
+            existing_bookings = Booking.objects.filter(date=booking.date, 
+            time=booking.time,name=request.user)  
             if existing_bookings.exists():
                 messages.error(request, 'The selected date and time is already booked. Please select a different date and time.')
             else:
@@ -99,7 +100,7 @@ def edit_booking(request,booking_id):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             # Check for overlapping bookings
-            existing_bookings = Booking.objects.filter(date=form.cleaned_data['date'], time=form.cleaned_data['time'])
+            existing_bookings = Booking.objects.filter(date=form.cleaned_data['date'], time=form.cleaned_data['time'],name=request.user)
             for existing_booking in existing_bookings:
                 if booking.id != existing_booking.id:
                     messages.error(request, 'The selected date and time is already booked. Please select a different date and time.')
@@ -118,7 +119,7 @@ def edit_booking(request,booking_id):
 
 @login_required
 def delete_booking(request, booking_id):
-    booking = get_object_or_404(Booking, pk=booking_id)
+    booking = get_object_or_404(Booking, pk=booking_id,name=request.user)
     booking.delete()
     messages.success(request, 'Booking deleted successfully.')
     return redirect('myaccount')

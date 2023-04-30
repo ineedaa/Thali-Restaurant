@@ -32,10 +32,6 @@ class BookingForm(forms.ModelForm):
             'date': DateInput(attrs={'type': 'date','min': datetime.today().strftime('%Y-%m-%d')}),
             'time': TimeInput(attrs={'type': 'time'})
         }
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['time'].widget.attrs.update({'min': time(18, 0).strftime('%H:%M'), 'max': time(22, 0).strftime('%H:%M')})
-
-
+    
 
 
