@@ -28,8 +28,10 @@ class BookingForm(forms.ModelForm):
         fields=['number_of_guests','date','time','special_request',]
         widgets = {
             'date': DateInput(attrs={'type': 'date','min': datetime.today().strftime('%Y-%m-%d')}),
-            'time': TimeInput(attrs={'type': 'time'})
+            'time': TimeInput(attrs={'type': 'time'})      
         }
-    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['time'].widget.attrs.update({'min': time(12, 0).strftime('%H:%M'), 'max': time(22, 0).strftime('%H:%M')})
 
 

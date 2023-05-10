@@ -20,7 +20,7 @@
 <hr>
 <div class="container">
   <div class="tableimg">
-    <img class="img1" src="static/img/dinner.jpg" alt="A cartoon of ordering online">
+    <img class="img1" src="{% static 'img/dinner.jpg' %}" alt="A restaurant image of few seats">
   </div>
   <!-- info div -->
   <div class="info">
@@ -35,7 +35,7 @@
     <p>Sundays and Mondays</p>
     <p>For both lunch and dinner,we take bookings for parties of 1 to 6.</p>
     <p>Private dining room parties of 6 to 10.</p>
-    <a href="{% url 'booking' %}" class="btn btn-success" role="button">Book a Table</a>
+    <a href="{% url 'reserve' %}" class="btn btn-success" role="button">Book a Table</a>
   </div>
 </div>
 <hr>

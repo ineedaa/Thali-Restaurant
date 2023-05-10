@@ -32,7 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('img/thali.jpg') no-repeat center center fixed;
+  background: url(https://res.cloudinary.com/dwzqzspmh/image/upload/v1683042012/static/img/thali.5d001f788b61.webp) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

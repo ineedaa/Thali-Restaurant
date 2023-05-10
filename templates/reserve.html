@@ -17,31 +17,31 @@
         </ul>
         {% endif %}
         <div class="messages container-sm">
-        {% if message %}
-           <strong>{{ message }}</strong> 
+            {% if message %}
+            <strong>{{ message }}</strong>
         </div>
         {% endif %}
     </div>
     <br>
     <!-- booking model form -->
-    <form method="POST" enctype="multipart/form-data" onsubmit="return validation()" action="{% url 'booking' %}">
+    <form method="POST" enctype="multipart/form-data" onsubmit="return validation()" action="{% url 'reserve' %}">
         {% csrf_token %}
         {{ form.errors }}
         <div class="container-sm">
             <div class="sub-content">
                 <div class="input-group mb-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Date of Event:</span>
-                        {{ form.date }}
-                    </div>
+                    <span class="input-group-text">Date of Event:</span>
+                    {{ form.date }}
+                </div>
+                <div class="input-group mb-3">
                     <span class="input-group-text">No of Guests:</span>
                     {{ form.number_of_guests }}
-                </div>               
+                </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">Time of Event:</span>
                     {{ form.time }}
                 </div>
-                <div class="input-group">
+                <div class="input-group mb-3">
                     <span class="input-group-text">Special Requests:</span>
                     {{ form.special_request }}
                 </div>

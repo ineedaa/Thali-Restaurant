@@ -165,7 +165,7 @@ The technology used in this website is :
    - Fixed a bug that  only shows the calendar dates of  future available dates by adding DateInput widget.
    - Fixed a bug that shows only the available time of the restaurant for booking by adding TimeInput widget.
    - Couldnt able to copy the libraries of allauth,as the lib directory is not available.so fixed it by manually typing authentication code in views.py.
-  
+   - Was unable to push code in Heroku.Forgot to run python3  manage.py collectstatic.Fixed bug with help of code institute tutor. 
 
 ### Supported Browsers
   - Compatible to Google Chrome.
