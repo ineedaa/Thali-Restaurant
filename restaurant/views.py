@@ -72,7 +72,7 @@ def register(request):
                 "message": "Username already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("booking"))
+        return HttpResponseRedirect(reverse("reserve"))
     return render(request, "register.html")
 
 
