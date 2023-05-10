@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
-    "phonenumber_field",
     'cloudinary',
     'django_summernote',
     'restaurant',
